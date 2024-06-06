@@ -1,4 +1,4 @@
-# Azure Devops
+# Azure Devops 
 
 - **`Boards`**: Track Work
 - **`Pipelines`**: Build and Deploy
@@ -16,3 +16,13 @@
 - To-Do
 - Doing
 - Done
+
+## Two Types of Azure Repos
+- **Git** -> Distributed
+- **TFVC** _(Team Foundation Version Control)_ -> Centralized
+
+### Git
+- Local Copy
+- Complete Version Control
+- Commit work
+- Sync to cloud
