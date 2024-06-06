@@ -12,5 +12,7 @@
 - Scrum
 - Capability Maturity Model Integration (CMMI)
 
-### Baic Workflow: 
-- To-Do, Doing and Done
+### Basic Workflow in Boards
+- To-Do
+- Doing
+- Done
