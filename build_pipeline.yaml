@@ -1,0 +1,29 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Build_Pipeline
+    jobs:
+        - job: Build
+          steps:
+          - script: mvn package -DskipTests
+            displayName: Maven package
+  
+          - script: ls -l $(Build.SourcesDirectory)
+            displayName: List contents of Source Directory
+
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(Build.SourcesDirectory)'
+              Contents: '$(Build.SourcesDirectory)/target/*.war'
+              TargetFolder: '$(Build.ArtifactStagingDirectory)'
+              
+          - task: PublishBuildArtifacts@1
+            inputs:
+               PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+               ArtifactName: 'drop'
+               publishLocation: 'Container'
+
