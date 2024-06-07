@@ -1,0 +1,4 @@
+# In ADO, we can keep the deployment pipelines separate or we can write the deployment part in the build
+# If we want two separate pipelines, we can make use of Publish Artifacts Task.
+# This task will keep the artifact available for release pipelines.
+
