@@ -1,5 +1,5 @@
 # ADO
-### To add a variable in the pipeline script
+## Variables at Stage Level
 ```yaml
 trigger:
 - master
@@ -25,4 +25,32 @@ stages:
     steps:
     - script: echo testing
       displayName: 'Run a multi-line script'
+```
+## Variables at Job Level
+```yaml
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Build
+  jobs:
+  - job: Job1
+    variables:
+      environment: Dev2
+    steps:
+    - bash: echo $(environment)
+      displayName: 'Run a one-line script'
+
+- stage: Test
+  dependsOn: Build
+  jobs:
+  - job: Job2
+    variables:
+      environment: dev3
+    steps:
+    - bash: echo $(environment)
+      displayName: 'Run a one-line script'
 ```
