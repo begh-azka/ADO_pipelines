@@ -1,0 +1,23 @@
+# Tasks include various assistants provided by ADO such as Copy task, Maven task etc
+# These are included in  stage > jobs > job > steps
+# Here CopyFiles@2 means this is the second version of the copy task
+# We can take help from ADO to generate yaml for all available tasks. (Make sure to Click on Edit Pipeline to avail this)
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+  
+stages:
+- stage: Copy
+  jobs:
+  - job: Copy_Job
+    steps:
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: '**/target/*.war'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+
