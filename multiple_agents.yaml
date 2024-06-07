@@ -1,3 +1,4 @@
+# This will run the same inline script on two diffrent agents
 trigger:
 - master
 
