@@ -35,63 +35,11 @@ These pipelines clone the code and build the artifacts based on instructions pro
 These pipelines are generally used to deploy artifacts.
 ## Pipelines
 - DisplayName is used to name every step in a stage/job
-### Jobs: Multiple jobs can run parallely inside a pipeline on different agents.
-
-- In pipeline yaml files, we can write
-```yaml
-jobs:
-- job: job1
-  steps:
-# Only one step here
-  - script: echo Job1 - Hello!
-    displayName: 'Run a multi-line script'
-- job: Job2
-  steps:
-  - script: echo Job2!!
-    displayName: 'Run another multi-line script'
-```
+### Jobs: Multiple jobs can run parallely inside a pipeline on different agents
 
 ### Lets add dependency between the jobs. Job2 will run when Job1 finishes.
-```yaml
-jobs:
-- job: Job1
-  steps:
-  - script: echo Job1 - Hello!
-    displayName: 'Run a multi-line script'
-- job: Job2
-  dependsOn: Job1
-  steps:
-  - script: echo Job2!!
-    displayName: 'Run another multi-line script'
-- job: Job3
-  dependsOn:
-  - Job1
-  - Job2
-  steps:
-  - script: echo Job2!!
-    displayName: 'Run another multi-line script'
-```
-### Stages in ado pipeline (stages are sequential). 
-```yaml
-stages:
-- stage: Build
-  jobs:
-  - job: First job
-    steps:
-    - bash: echo hello 1
-  - job: Second job
-    steps:
-    - bash: echo hello 2
-- stage: Deploy
-  jobs:
-  - job: First job
-    steps:
-    - bash: echo hello 1
-- stage: Test
-  jobs:
-  - job: First job
-    steps:
-    - bash: echo hello 1
-```
 
+### Stages in ado pipeline (stages are sequential). 
+
+### Jobs and Stages run on different agents
      
