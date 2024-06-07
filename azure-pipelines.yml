@@ -1,3 +1,4 @@
+# Understanding Stages > Stage > Jobs > Job > Steps > Script
 trigger:
 - master
 
