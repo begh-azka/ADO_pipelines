@@ -1,0 +1,10 @@
+jobs:
+- job: job1
+  steps:
+# Only one step here
+  - script: echo Job1 - Hello!
+    displayName: 'Run a multi-line script'
+- job: Job2
+  steps:
+  - script: echo Job2!!
+    displayName: 'Run another multi-line script'
