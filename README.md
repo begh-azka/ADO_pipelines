@@ -69,7 +69,7 @@ jobs:
   - script: echo Job2!!
     displayName: 'Run another multi-line script'
 ```
-- Stages in ado pipeline
+- Stages in ado pipeline (stages are sequential)
 ```yaml
 stages:
 - stage: Build
