@@ -1,0 +1,38 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Build
+    jobs:
+      - job: Build_Artifact
+        steps:
+        - script: |
+            pwd
+            mvn clean install -DskipTests
+          displayName: Maven Install
+
+  - stage: Test
+    jobs:
+      - job: Test
+        steps:
+        - script: mvn test
+          displayName: Maven Test
+
+  - stage: Docker
+    jobs:
+    - job: Build_Docker_Image
+      steps:
+      - script: docker build -t azkabegh/ado/azure-$(Build.BuildNumber) ./
+        displayName: Build Docker Image
+        
+  - stage: Push_Docker_Image_to_DockerHub
+    jobs:
+    - job: Push_images
+      steps: 
+      - script: docker push azkabegh/ado/azure-$(Build.BuildNumber)
+        displayName: Build Docker Image
+
+
