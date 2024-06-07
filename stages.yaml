@@ -1,0 +1,19 @@
+stages:
+- stage: Build
+  jobs:
+  - job: First job
+    steps:
+    - bash: echo hello 1
+  - job: Second job
+    steps:
+    - bash: echo hello 2
+- stage: Deploy
+  jobs:
+  - job: First job
+    steps:
+    - bash: echo hello 1
+- stage: Test
+  jobs:
+  - job: First job
+    steps:
+    - bash: echo hello 1
