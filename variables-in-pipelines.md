@@ -108,8 +108,7 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-
-- stage: Print Inbuilt Variables
+- stage: Print
   jobs:
   - job: Job1
     steps:
