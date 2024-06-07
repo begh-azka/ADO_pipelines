@@ -1,0 +1,24 @@
+# Deployment jobs can be associated with environments.
+# We can set Approval and Checks for these Environments.
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Stage1
+    jobs:
+        - job: 
+          steps:
+          - bash: Hello World!
+
+  - stage: Stage2
+    jobs:
+        - deployment: devDeploy
+          environment: Dev
+          strategy:
+            runOnce:
+              deploy:
+                steps:
+                - script: echo Deploy to Dev. Approval needed.
