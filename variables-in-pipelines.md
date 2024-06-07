@@ -99,6 +99,9 @@ stages:
 6. **Build.SourceBranchName:** The name of the branch the build was queued for.
 7. **`Build.SourcesDirectory`:** The local path on the agent where your source code files are downloaded. **`(c:\agent_work\1\s)`**
 
+### Release Variables:
+1. **System.ArtifactsDirectory:** Same as Build.ArtifactStagingDirectory
+
 ### Example
 ```yaml
 trigger:
