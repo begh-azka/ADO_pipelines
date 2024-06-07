@@ -52,12 +52,19 @@ jobs:
 - Lets add dependency between the jobs. Job2 will run when Job1 finishes.
 ```yaml
 jobs:
-- job: job1
+- job: Job1
   steps:
   - script: echo Job1 - Hello!
     displayName: 'Run a multi-line script'
 - job: Job2
   dependsOn: Job1
+  steps:
+  - script: echo Job2!!
+    displayName: 'Run another multi-line script'
+- job: Job3
+  dependsOn:
+  - Job1
+  - Job2
   steps:
   - script: echo Job2!!
     displayName: 'Run another multi-line script'
