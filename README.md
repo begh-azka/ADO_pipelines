@@ -69,3 +69,27 @@ jobs:
   - script: echo Job2!!
     displayName: 'Run another multi-line script'
 ```
+- Stages in ado pipeline
+```yaml
+stages:
+- stage: Build
+  jobs:
+  - job: First job
+    steps:
+    - bash: echo hello 1
+  - job: Second job
+    steps:
+    - bash: echo hello 2
+- stage: Deploy
+  jobs:
+  - job: First job
+    steps:
+    - bash: echo hello 1
+- stage: Test
+  jobs:
+  - job: First job
+    steps:
+    - bash: echo hello 1
+```
+  
+     
