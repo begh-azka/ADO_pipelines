@@ -1,5 +1,5 @@
 # Deployment jobs can be associated with environments.
-# We can set Approval and Checks for these Environments.
+# We can set Approval and Checks for these Environments. When pipelines reach this job, they wait for an approval.
 trigger:
 - master
 
