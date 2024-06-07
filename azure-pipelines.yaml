@@ -1,4 +1,4 @@
-# Understanding Stages > Stage > Jobs > Job > Steps > Script
+# Understanding Stages > Stage > Jobs > Job > Steps > Script or Task
 trigger:
 - master
 
