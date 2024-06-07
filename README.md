@@ -93,28 +93,5 @@ stages:
     steps:
     - bash: echo hello 1
 ```
-### Adding Variables to a pipeline:
-```yaml
-trigger:
-- master
 
-pool:
-  vmImage: ubuntu-latest
-
-stages:
-- stage: Build
-  jobs:
-  - job: Job1
-    steps:
-# Two steps and last one has a name
-    - bash: echo This is a build job.
-    - bash: echo $(PipelineLevelVariable)
-      displayName: 'Run a one-line script'
-- stage: Test
-  jobs:
-  - job: Job2
-    steps:
-    - script: echo testing
-      displayName: 'Run a multi-line script'
-```
      
