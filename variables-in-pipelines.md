@@ -98,4 +98,32 @@ stages:
 5. **Build.DefinitionName:** The name of the build pipeline.
 6. **Build.SourceBranchName:** The name of the branch the build was queued for.
 7. **`Build.SourcesDirectory`:** The local path on the agent where your source code files are downloaded. **`(c:\agent_work\1\s)`**
+
+### Example
+```yaml
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+
+- stage: Print Inbuilt Variables
+  jobs:
+  - job: Job1
+    steps:
+    - bash: echo $(Build.BuildId)
+      displayName: 'Print Build.BuildId'
+    - bash: echo $(Build.BuildNumber)
+      displayName: 'Print BuildNumber'
+    - bash: echo $(Build.StagingDirectory)
+      displayName: 'Print Build.StagingDirectory'
+    - bash: echo $(Build.SourcesDirectory)
+      displayName: 'Print Build.SourcesDirectory'
+    - bash: echo $(Build.DefinitionName)
+      displayName: 'Print Build.DefinitionName' 
+    - bash: echo $(Build.SourceBranchName)  
+      displayName: 'Print Build.SourceBranchName'
+```
    
