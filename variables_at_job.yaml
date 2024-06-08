@@ -1,0 +1,25 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: Build
+  jobs:
+  - job: Job1
+    variables:
+      environment: Dev2
+    steps:
+    - bash: echo $(environment)
+      displayName: 'Run a one-line script'
+
+- stage: Test
+  dependsOn: Build
+  jobs:
+  - job: Job2
+    variables:
+      environment: dev3
+    steps:
+    - bash: echo $(environment)
+      displayName: 'Run a one-line script'
